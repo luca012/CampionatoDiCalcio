@@ -138,16 +138,18 @@ public class Campionato {
 	/**
 	 * Stampa tutte le partite che la squadra <b>nomeSquadra</b> ha giocato
 	 * 
-	 * @param nomeSquadra Nome della squadra di cui stampare le partite
+	 * @param nomeSquadra Nome della squadra di cui stampare le partite (è sufficiente la parte iniziale del nome)
 	 */
 
-	public void cercaSquadra(String nomeSquadra) {
-		if (partite_squadre.containsKey(nomeSquadra)) {
-			System.out.println("\n*** Partite giocate dalla squadra " + nomeSquadra + " ***\n");
-			List<Partita> lista = partite_squadre.get(nomeSquadra);
-			System.out.println("Giornata --- Data --- Squadra casa --- Risultato --- Squadra ospite");
-			for (Partita p : lista) {
-				System.out.println(p.toString());
+	public void stampaPartiteSquadra(String nomeSquadra) {
+		for (String key : this.partite_squadre.keySet()) {
+			if (key.toLowerCase().startsWith(nomeSquadra.toLowerCase())) {
+				System.out.println("\n*** Partite giocate dalla squadra " + key + " ***\n");
+				List<Partita> lista = partite_squadre.get(key);
+				System.out.println("Giornata --- Data --- Squadra casa --- Risultato --- Squadra ospite");
+				for (Partita p : lista) {
+					System.out.println(p.toString());
+				}
 			}
 		}
 	}
@@ -158,7 +160,7 @@ public class Campionato {
 	 * @param numGiornata Numero della giornata di cui stampare le partite
 	 */
 
-	public void cercaGiornata(int numGiornata) {
+	public void stampaPartiteGiornata(int numGiornata) {
 		if (partite_giornate.containsKey(numGiornata)) {
 			System.out.println("\n*** Partite giocate nella giornata " + numGiornata + " ***\n");
 			List<Partita> lista = partite_giornate.get(numGiornata);

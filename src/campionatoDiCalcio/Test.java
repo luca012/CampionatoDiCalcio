@@ -36,12 +36,12 @@ public class Test {
 			case 2:
 				System.out.print("\nInserire il nome di una squadra: ");
 				String nomeSquadra = input.nextLine();
-				c.cercaSquadra(nomeSquadra);
+				c.stampaPartiteSquadra(nomeSquadra);
 				break;
 			case 3:
 				System.out.print("\nInserire il numero di una giornata: ");
 				int numGiornata = input.nextInt();
-				c.cercaGiornata(numGiornata);
+				c.stampaPartiteGiornata(numGiornata);
 				break;
 			case 4:
 				c.esportaClassifica();
